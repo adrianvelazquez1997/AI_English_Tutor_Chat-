@@ -7,3 +7,5 @@ faiss-cpu
 numpy
 pandas
 elevenlabs
+pypdf
+python-docx
