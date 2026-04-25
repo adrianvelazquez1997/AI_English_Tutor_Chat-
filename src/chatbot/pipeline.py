@@ -1,5 +1,3 @@
-# src/chatbot/pipeline.py
-
 from src.rag.retriever import retrieve_context
 from src.llm.generator import generate_response
 from src.llm.parser import parse_structured_response, extract_text_from_content
