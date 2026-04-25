@@ -1,9 +1,34 @@
 import gradio as gr
-from src.rag_pipeline import run_tutor_pipeline
+from src.config.settings import (
+    MARIANNE_NAME,
+    GRADIO_SERVER_NAME,
+    GRADIO_SERVER_PORT,
+)
 
-def chat_fn(message, history):
+from src.chatbot.pipeline import run_chat_pipeline
+from src.chatbot.intro import introduce_marianne
+from src.rag.retriever import initialize_retriever
+from src.visualization.embedding_viz import show_vector_space
+
+initialize_retriever()
+
+def respond(message, history):
     if history is None:
         history = []
+
+    message = str(message).strip()
+
+    if not message:
+        return history, "", None, None
+
+    result = run_chat_pipeline(message, history)
+
+    history = history + [
+        {"role": "user", "content": message},
+        {"role": "assistant", "content": result["text"]}
+    ]
+
+    return history, "", result["image"], result["audio"]
 
     text = run_tutor_pipeline(message, history)
 
