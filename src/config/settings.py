@@ -5,9 +5,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # BASE PATHS
-BASE_DIR = Path(_file_).resolve().parent[2]
+BASE_DIR = Path(__file__).resolve().parent[2]
 DATA_DIR = BASE_DIR / "data"
-CHEAT_SHEETS_DIR = DATA_DIR / ""
+CHEAT_SHEETS_DIR = DATA_DIR / "cheat_sheets"
+BOOKS_DIR = DATA_DIR / "books"
 
 VECTORSTORE_DIR = BASE_DIR / "vectorstore"
 AUDIO_DIR = BASE_DIR / "audio_outputs"
