@@ -35,38 +35,3 @@ Construir un **asistente inteligente de aprendizaje de inglés** con arquitectur
 
 ![System Flow](diagram.png)
 
-El sistema sigue una arquitectura **RAG + LLM + Multimodal Output**, diseñada para simular un tutor de inglés inteligente.
-
-### 🔄 Flujo del sistema
-
-1. **Data Ingestion**
-   - PDFs / DOCX → limpieza → chunking  
-   - Embeddings (`text-embedding-3-small`)  
-   - Almacenamiento en FAISS  
-
-2. **Retrieval (RAG)**
-   - Búsqueda semántica  
-   - Selección de *Top-K chunks* relevantes  
-
-3. **LLM**
-   - Prompt = user + contexto + system prompt  
-   - Modelo: `gpt-4o-mini`  
-   - Salida estructurada (JSON)
-
-4. **Decision Engine**
-   - Parseo de respuesta  
-   - Decide: texto / audio / imagen  
-
-5. **Multimodal Output**
-   - 🔊 TTS (audio)  
-   - 🖼️ generación de imágenes  
-   - 💬 respuesta textual  
-
-6. **UI (Gradio)**
-   - Chat interactivo  
-   - Audio player  
-   - Panel de imágenes  
-
-7. **Embedding Visualization**
-   - PCA + Plotly  
-   - Visualización 3D del espacio vectorial  
