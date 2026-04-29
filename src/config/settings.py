@@ -20,7 +20,7 @@ IMAGE_DIR.mkdir(parents=True, exist_ok=True)
 VECTORSTORE_DIR.mkdir(parents=True, exist_ok=True)
 
 # API KEYS
-OPENAI_API_KEY = os.getenv("")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 if not OPENAI_API_KEY: 
     raise ValueError("OPENAI_API_KEY no está definida en el archivo .env")
