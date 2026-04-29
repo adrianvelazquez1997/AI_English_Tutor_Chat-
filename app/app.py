@@ -14,7 +14,7 @@ def respond(message, history):
     message = str(message).strip()
 
     if not message:
-        return history, "", None, None
+        return history, "", None, None, history
 
     result = run_chat_pipeline(message, history)
 
@@ -23,7 +23,7 @@ def respond(message, history):
         {"role": "assistant", "content": result["text"]}
     ]
 
-    return history, "", result["image"], result["audio"]
+    return history, "", result["image"], result["audio"], history
 
 with gr.Blocks() as demo:
     gr.Markdown(f"# {MARIANNE_NAME} - English Tutor AI")
