@@ -58,6 +58,11 @@ with gr.Blocks() as demo:
             autoplay=True
         )
 
+        debug_messages = gr.JSON(
+            label="Messages Debug",
+            value=[]
+        )
+
         start_btn.click(
             fn=introduce_marianne,
             outputs=[chatbot, image_output, audio_output]
@@ -66,13 +71,13 @@ with gr.Blocks() as demo:
         send.click(
             fn=respond,
             inputs=[msg, chatbot],
-            outputs=[chatbot, msg, image_output, audio_output]
+            outputs=[chatbot, msg, image_output, audio_output, debug_messages]
         )
 
         msg.submit(
             fn=respond,
             inputs=[msg, chatbot],
-            outputs=[chatbot, msg, image_output, audio_output]
+            outputs=[chatbot, msg, image_output, audio_output, debug_messages]
         )
 
     with gr.Tab("Vector Space"):
