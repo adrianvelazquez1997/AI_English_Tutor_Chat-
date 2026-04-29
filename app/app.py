@@ -14,7 +14,7 @@ def respond(message, history):
     message = str(message).strip()
 
     if not message:
-        return history, "", None, None
+        return history, "", None, None, history
 
     result = run_chat_pipeline(message, history)
 
@@ -23,7 +23,7 @@ def respond(message, history):
         {"role": "assistant", "content": result["text"]}
     ]
 
-    return history, "", result["image"], result["audio"]
+    return history, "", result["image"], result["audio"], history
 
 with gr.Blocks() as demo:
     gr.Markdown(f"# {MARIANNE_NAME} - English Tutor AI")
@@ -54,8 +54,13 @@ with gr.Blocks() as demo:
 
         audio_output = gr.Audio(
             label="Voice",
-            visible=False,
+            visible=True,
             autoplay=True
+        )
+
+        debug_messages = gr.JSON(
+            label="Messages Debug",
+            value=[]
         )
 
         start_btn.click(
@@ -66,13 +71,13 @@ with gr.Blocks() as demo:
         send.click(
             fn=respond,
             inputs=[msg, chatbot],
-            outputs=[chatbot, msg, image_output, audio_output]
+            outputs=[chatbot, msg, image_output, audio_output, debug_messages]
         )
 
         msg.submit(
             fn=respond,
             inputs=[msg, chatbot],
-            outputs=[chatbot, msg, image_output, audio_output]
+            outputs=[chatbot, msg, image_output, audio_output, debug_messages]
         )
 
     with gr.Tab("Vector Space"):
