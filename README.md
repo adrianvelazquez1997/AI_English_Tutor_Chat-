@@ -37,4 +37,6 @@ Construir un **asistente inteligente de aprendizaje de inglés** con arquitectur
 
 ## 📊 Resultados
 
-![](gui.png)
+![GUI](gui.png)
+
+![Embedding Space](embedding_space.png)
