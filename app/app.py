@@ -55,8 +55,7 @@ with gr.Blocks() as demo:
         audio_output = gr.Audio(
             label="Voice",
             visible=True,
-            autoplay=True,
-            show_label=False
+            autoplay=True
         )
 
         debug_messages = gr.JSON(
