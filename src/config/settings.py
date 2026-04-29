@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # BASE PATHS
-BASE_DIR = Path(__file__).resolve().parent[2]
+BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "data"
 CHEAT_SHEETS_DIR = DATA_DIR / "cheat_sheets"
 BOOKS_DIR = DATA_DIR / "books"
