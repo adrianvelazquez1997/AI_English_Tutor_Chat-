@@ -35,3 +35,6 @@ Construir un **asistente inteligente de aprendizaje de inglés** con arquitectur
 
 ![System Flow](diagram.png)
 
+## 📊 Resultados
+
+![](gui.png)
