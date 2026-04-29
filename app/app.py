@@ -33,8 +33,7 @@ with gr.Blocks() as demo:
             with gr.Column(scale=3):
                 chatbot = gr.Chatbot(
                     label="Chat",
-                    height=500,
-                    type="messages"
+                    height=500
                 )
 
                 msg = gr.Textbox(
