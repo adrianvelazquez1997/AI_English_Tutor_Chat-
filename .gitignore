@@ -18,3 +18,4 @@ processed/
 vectorstore/
 embeddings/
 indexes/
+.gradio
