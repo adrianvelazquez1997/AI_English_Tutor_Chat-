@@ -23,7 +23,7 @@ def build_faiss_index(
 
     with open(output_dir / "metadata.json", "w", encoding="utf-8") as f:
         json.dump(chunks, f, ensure_ascii=False, indent=2)
-
+    np.save(output_dir / "embeddings.npy", vectors)
 
 def load_faiss_index(input_dir: Path = VECTORSTORE_DIR):
     index_path = input_dir / "index.faiss"
@@ -41,3 +41,11 @@ def load_faiss_index(input_dir: Path = VECTORSTORE_DIR):
         metadata = json.load(f)
 
     return index, metadata
+
+def load_embeddings(input_dir: Path = VECTORSTORE_DIR):
+    file_path = input_dir / "embeddings.npy"
+
+    if not file_path.exists():
+        raise FileNotFoundError(f"No existe embeddings.npy en {file_path}")
+
+    return np.load(file_path)
