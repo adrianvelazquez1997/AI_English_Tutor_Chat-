@@ -1,10 +1,5 @@
 import gradio as gr
-from src.config.settings import (
-    MARIANNE_NAME,
-    GRADIO_SERVER_NAME,
-    GRADIO_SERVER_PORT,
-)
-
+from src.config.settings import (MARIANNE_NAME)
 from src.chatbot.pipeline import run_chat_pipeline
 from src.chatbot.intro import introduce_marianne
 from src.rag.retriever import initialize_retriever
